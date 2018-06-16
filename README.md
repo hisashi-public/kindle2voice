@@ -29,5 +29,5 @@
 - batch.sh の実行
     - 'export GOOGLE_APPLICATION_CREDENTIALS=[path to service account key]' のようにして Googole Cloud Platformのサービスアカウントキーを設定します。
     - text形式のファイル、「metadata.opf」、「cover.jpg」を同じディレクトリに入れて'./batch.sh [Directory]'のように第一引数に指定してスクリプトを実行します。
-
+    - 10分程度で、スクリプトと同じディレクトリにMP3ファイルが出来ます。
     

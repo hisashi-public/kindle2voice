@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-export GOOGLE_APPLICATION_CREDENTIALS=`pwd`/ttstest_sa.json
-
 test -d ${1} || exit -1;
 txtfile="`ls ${1}/*.txt | sort`"
 
@@ -48,7 +46,8 @@ while true; do
 done
 sleep 1
 
-af="atempo=1.25, atempo=2"
+#af="atempo=1.25, atempo=2" # speed x2.5
+af="atempo=2" # speed x2
 
 for f in $(cat list.txt); do
     bn=`basename ${f} .mp3`
@@ -59,7 +58,7 @@ sox `ls *.wav | sort` 000000.wav
 
 
 METAFILE=${1}/metadata.opf
-TITLE="`./parse_metadata.py ${METAFILE} t` (GCP TTS)"
+TITLE="`./parse_metadata.py ${METAFILE} t`"
 ARTIST=`./parse_metadata.py ${METAFILE} c`
 ALBUM="${TITLE}"
 CART="${1}/cover.jpg"

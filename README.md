@@ -1,4 +1,7 @@
 # 事前準備
+- Google Cloud Platform のアカウント作成
+    - 下記のページから無料トライアルを選択し、無料トライアルの手続きをします。
+        - [Google Cloud](https://cloud.google.com/)
 - Google Cloud Platform の設定
     - Cloud TTSの有効化
         - 下記ページにログインし、左上の「ナビゲーションメニュー」から「APIとサービス」→「ライブラリ」選択します。
@@ -22,9 +25,8 @@
 
 # Kindle本のダウンロード、DRM解除、textファイル等への変換(Windows環境)
 - Windows 版Kindleを使って、Kindle本をPC上にダウンロードします。
-- Epubor Kindle DRM Removal　を使ってKindle本のDRMを解除します。
-- calibre E-book managementを使ってazw3形式(Kindle本の形式)のファイルを、text形式のファイル、「metadata.opf」、「cover.jpg」の３つのファイルに変換します。
-- text形式のファイル、「metadata.opf」、「cover.jpg」をシェルスクリプト実行環境にコピーしてください。
+- [Epubor Kindle DRM Removal](https://jp.epubor.com/kindle-drm%E8%A7%A3%E9%99%A4/)をインストールしてKindle本のDRMを解除します。
+- [calibre E-book management](https://calibre-ebook.com/)をインストールして、azw3形式(Kindle本の形式)のファイルを、text形式のファイル、「metadata.opf」、「cover.jpg」の３つのファイルに変換します。
 
 # batch.sh の実行
 - 'export GOOGLE_APPLICATION_CREDENTIALS=[path to service account key]' のようにして Googole Cloud Platformのサービスアカウントキーを設定します。

@@ -20,14 +20,14 @@
 - python3 pip パッケージ 
     - google-cloud
 
-- Kindle本のダウンロード、DRM解除、textファイル等への変換(Windows環境)
-    - Windows 版Kindleを使って、Kindle本をPC上にダウンロードします。
-    - Epubor Kindle DRM Removal　を使ってKindle本のDRMを解除します。
-    - calibre E-book managementを使ってazw3形式(Kindle本の形式)のファイルを、text形式のファイル、「metadata.opf」、「cover.jpg」の３つのファイルに変換します。
-    - text形式のファイル、「metadata.opf」、「cover.jpg」をシェルスクリプト実行環境にコピーしてください。
+# Kindle本のダウンロード、DRM解除、textファイル等への変換(Windows環境)
+- Windows 版Kindleを使って、Kindle本をPC上にダウンロードします。
+- Epubor Kindle DRM Removal　を使ってKindle本のDRMを解除します。
+- calibre E-book managementを使ってazw3形式(Kindle本の形式)のファイルを、text形式のファイル、「metadata.opf」、「cover.jpg」の３つのファイルに変換します。
+- text形式のファイル、「metadata.opf」、「cover.jpg」をシェルスクリプト実行環境にコピーしてください。
 
-- batch.sh の実行
-    - 'export GOOGLE_APPLICATION_CREDENTIALS=[path to service account key]' のようにして Googole Cloud Platformのサービスアカウントキーを設定します。
-    - text形式のファイル、「metadata.opf」、「cover.jpg」を同じディレクトリに入れて'./batch.sh [Directory]'のように第一引数に指定してスクリプトを実行します。
-    - 10分程度で、スクリプトと同じディレクトリにMP3ファイルが出来ます。
+# batch.sh の実行
+- 'export GOOGLE_APPLICATION_CREDENTIALS=[path to service account key]' のようにして Googole Cloud Platformのサービスアカウントキーを設定します。
+- text形式のファイル、「metadata.opf」、「cover.jpg」を同じディレクトリに入れて'./batch.sh [Directory]'のように第一引数に指定してスクリプトを実行します。
+- 10分程度で、スクリプトと同じディレクトリにMP3ファイルが出来ます。
     

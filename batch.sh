@@ -22,6 +22,7 @@ cat "${txtfile}" | while read line; do
         NUM=`echo "${NUM} + 1" | bc`
         currfile=`printf "%06d" ${NUM}`
         total=0
+        sleep 5
     fi
 done
 echo ${LINENO}
@@ -44,7 +45,7 @@ while true; do
     fi
     sleep 0.5
 done
-sleep 1
+sleep 5
 
 #af="atempo=1.25, atempo=2" # speed x2.5
 af="atempo=2" # speed x2

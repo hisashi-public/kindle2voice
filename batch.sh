@@ -26,9 +26,14 @@ cat "${txtfile}" | while read line; do
     fi
 done
 echo ${LINENO}
-if test ${total} -gt 0; then
+
+currfile=`ls 00????.txt | sort | tail -n 1`
+currfile=`basename ${currfile} .txt`
+added=`grep ${currfile}.mp3 list.txt`
+if test -z "${added}" ; then
     ./gcp_tts.py ${currfile}.txt ${currfile}.mp3 j &
     echo ${currfile}.mp3 >> list.txt
+    sleep 5
 fi
 
 echo ${LINENO}

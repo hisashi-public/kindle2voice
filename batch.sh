@@ -22,7 +22,6 @@ cat "${txtfile}" | while read line; do
         NUM=`echo "${NUM} + 1" | bc`
         currfile=`printf "%06d" ${NUM}`
         total=0
-        sleep 5
     fi
 done
 echo ${LINENO}
@@ -33,7 +32,6 @@ added=`grep ${currfile}.mp3 list.txt`
 if test -z "${added}" ; then
     ./gcp_tts.py ${currfile}.txt ${currfile}.mp3 j &
     echo ${currfile}.mp3 >> list.txt
-    sleep 5
 fi
 
 echo ${LINENO}

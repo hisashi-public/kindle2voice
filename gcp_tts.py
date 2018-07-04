@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from time import sleep
 
 def synthesize_text(text, lang, name, speed, ofile):
     """Synthesizes speech from the input string of text."""
@@ -36,7 +37,17 @@ if __name__ == "__main__":
 #        speed=1.7
 #        speed=2.5
         lang='ja-JP'
-        name='ja-JP-Standard-A' # only 
-    synthesize_text(open(argv[1],'r').read(), lang, name, speed, argv[2])
+        name='ja-JP-Standard-A' # only
+
+    wait=1
+    for i in range(1, 10):
+        try:
+            synthesize_text(open(argv[1],'r').read(), lang, name, speed, argv[2])
+            break;
+        except Exception as err:
+            print(i, ' caught an exception (', err, ')')
+            sleep(wait)
+            wait *= 2
+
 
 

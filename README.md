@@ -32,6 +32,7 @@
 
 - python3 pip パッケージ 
     - google-cloud
+    - google-cloud-texttospeech
 
 # Kindle本の音声合成
 

@@ -25,7 +25,6 @@ ebook-convert \
     "${AZW_FILE}" \
     tmp/tmp.txt || fatal_error ${LINENO} 
 
-source api.env
 ./txt2mp3.sh tmp "${MP3_FILE}" || fatal_error ${LINENO}
 
 mv *.mp3 "${DST_DIR}" || fatal_error ${LINENO}

@@ -9,7 +9,7 @@ function fatal_error() {
 }
 
 AZW_FILE="${1}"
-MP3_FILE="`basename ${AZW_FILE} .azw3`".mp3
+MP3_FILE="`basename \"${AZW_FILE}\" .azw3`".mp3
 DST_DIR="${2}"
 
 rm -rf tmp || fatal_error ${LINENO}

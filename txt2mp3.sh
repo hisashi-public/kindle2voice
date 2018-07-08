@@ -1,7 +1,16 @@
 #!/usr/bin/env bash
 
-test -d ${1} || exit -1;
+script_name=${0}
+RED="\033[31m"
+RST="\033[0m"
+function fatal_error() {
+    echo -e "${RED}fatal error in ${script_name} ${1}${RST}"
+    exit -1
+}
+
+test -d ${1} || fatal_error ${LINENO};
 txtfile="`ls ${1}/*.txt | sort`"
+mp3file="${2}"
 
 rm 00????.*
 rm *.wav
@@ -56,7 +65,10 @@ af="atempo=2" # speed x2
 for f in $(cat list.txt); do
     bn=`basename ${f} .mp3`
     wavfile=${bn}.wav
-    ffmpeg -i ${f} -af "${af}" ${wavfile} > /dev/null
+    ffmpeg \
+        -i ${f} \
+        -af "${af}" \
+        ${wavfile} > /dev/null || fatal_error ${LINENO}
 done
 sox `ls *.wav | sort` 000000.wav
 
@@ -66,12 +78,28 @@ TITLE="`./parse_metadata.py ${METAFILE} t`"
 ARTIST=`./parse_metadata.py ${METAFILE} c`
 ALBUM="${TITLE}"
 CART="${1}/cover.jpg"
-
+MP3FILE="${mp3file}"
+if test -z "${MP3FILE}"; then
+    MP3FILE="${TITLE}.mp3"
+fi
 #sox 000000.wav -r 44100 -c 1 "${TITLE}.wav" echo  1.0 0.75 100 0.3 reverb
-sox -v 3 000000.wav -r 44100 -c 1 "${TITLE}.wav" echo  1.0 0.3 100 0.05
-lame --tt "${TITLE}" --tl "${ALBUM}" --ta "${ARTIST}" --ti "${CART}" "${TITLE}.wav" "${TITLE}.mp3"
+sox \
+    -v 3 \
+    000000.wav \
+    -r 44100 \
+    -c 1 \
+    "${TITLE}.wav" \
+    echo  1.0 0.3 100 0.05 || fatal_error ${LINENO}
+lame \
+    --tt "${TITLE}" \
+    --tl "${ALBUM}" \
+    --ta "${ARTIST}" \
+    --ti "${CART}" \
+    "${TITLE}.wav" \
+    "${MP3FILE}" || fatal_error ${LINENO}
 
 rm list.txt
 rm 00????.*
 rm *.wav
 
+exit 0

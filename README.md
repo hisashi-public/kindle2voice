@@ -29,6 +29,7 @@
     - ffmpeg
     - lame
     - python3
+    - calibre (ebook-convert / ebook-meta)
 
 - python3 pip パッケージ 
     - google-cloud
@@ -39,10 +40,9 @@
 ### Kindle本のダウンロード、DRM解除、textファイル等への変換(Windows環境)
 - Windows 版Kindleを使って、Kindle本をPC上にダウンロードします。
 - [Epubor Kindle DRM Removal](https://jp.epubor.com/kindle-drm%E8%A7%A3%E9%99%A4/)をインストールしてKindle本のDRMを解除します。
-- [calibre E-book management](https://calibre-ebook.com/)をインストールして、azw3形式(Kindle本の形式)のファイルを、text形式のファイル、「metadata.opf」、「cover.jpg」の３つのファイルに変換します。
 
-### batch.sh の実行
+### azw2mp3.sh の実行
 - 'export GOOGLE_APPLICATION_CREDENTIALS=[path to service account key]' のようにして Google Cloud Platformのサービスアカウントキーを設定します。
-- text形式のファイル、「metadata.opf」、「cover.jpg」を同じディレクトリに入れて'./batch.sh [Directory]'のように第一引数に指定してスクリプトを実行します。
-- 10分程度で、スクリプトと同じディレクトリにMP3ファイルが出来ます。
+- azw2mp3.sh [azw3 file] [mp3 file directroy] のようしてスクリプトを実行します。
+- 10分程度でMP3ファイルが出来ます。
     

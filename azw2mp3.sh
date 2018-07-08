@@ -9,12 +9,10 @@ function fatal_error() {
 }
 
 AZW_FILE="${1}"
-MP3_FILE="`basename \"${AZW_FILE}\" .azw3`".mp3
-DST_DIR="${2}"
+MP3_FILE="${2}"
 
 rm -rf tmp || fatal_error ${LINENO}
 mkdir -p tmp || fatal_error ${LINENO}
-mkdir -p "${DST_DIR}" || fatal_error ${LINENO}
 
 ebook-meta \
     --to-opf=tmp/metadata.opf \
@@ -26,8 +24,6 @@ ebook-convert \
     tmp/tmp.txt || fatal_error ${LINENO} 
 
 ./txt2mp3.sh tmp "${MP3_FILE}" || fatal_error ${LINENO}
-
-mv *.mp3 "${DST_DIR}" || fatal_error ${LINENO}
 
 exit 0
 

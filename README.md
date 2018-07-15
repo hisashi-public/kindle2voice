@@ -43,6 +43,6 @@
 
 ### azw2mp3.sh の実行
 - 'export GOOGLE_APPLICATION_CREDENTIALS=[path to service account key]' のようにして Google Cloud Platformのサービスアカウントキーを設定します。
-- azw2mp3.sh <azw3 file> <mp3 file> のようしてスクリプトを実行します。
+- azw2mp3.sh  [azw3 file]  [mp3 file] のように指定してスクリプトを実行します。
 - 10分程度でMP3ファイルが出来ます。
     
